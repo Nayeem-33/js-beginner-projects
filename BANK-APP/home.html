@@ -93,7 +93,7 @@
               >Card Number</label
             >
             <input
-              type="text"
+              type="number"
               id="cardNo"
               name="cardNo"
               class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -158,7 +158,7 @@
               >Agent Number</label
             >
             <input
-              type="text"
+              type="number"
               id="agentNumber"
               name="agentNumber"
               class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -177,9 +177,7 @@
               type="number"
               id="cashOutAmount"
               name="cashOutAmount"
-              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 
-              
-              focus:ring-blue-500"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter Cash Out Amount"
               required
             />
@@ -225,11 +223,11 @@
               >Recipient Number</label
             >
             <input
-              type="text"
+              type="number"
               id="recipientNumber"
               name="recipientNumber"
               class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter Agent Number"
+              placeholder="Enter Recipient Number"
               required
             />
           </div>
@@ -245,7 +243,7 @@
               id="sendMoneyAmount"
               name="sendMoneyAmount"
               class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter Cash Out Amount"
+              placeholder="Enter Amount"
               required
             />
           </div>
@@ -279,7 +277,10 @@
       </div>
 
       <!-- Mobile Recharge Form -->
-      <div id="rechargeForm" class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg">
+      <div
+        id="rechargeForm"
+        class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg"
+      >
         <h3 class="text-xl font-bold mb-4">Mobile Recharge</h3>
         <form action="#" class="space-y-4">
           <!-- Recipient Number -->
@@ -290,11 +291,11 @@
               >Mobile Number</label
             >
             <input
-              type="text"
+              type="number"
               id="mobileNumber"
               name="mobileNumber"
               class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter Agent Number"
+              placeholder="Enter Mobile Number"
               required
             />
           </div>
@@ -310,7 +311,7 @@
               id="rechargeAmount"
               name="rechargeAmount"
               class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter Cash Out Amount"
+              placeholder="Enter Recharge Amount"
               required
             />
           </div>
@@ -350,14 +351,14 @@
           <!-- Bill No -->
           <div>
             <label for="billNo" class="block text-sm font-medium text-gray-700"
-              >Bill Number</label
+              >Billing Number</label
             >
             <input
-              type="text"
+              type="number"
               id="billNo"
               name="billNo"
               class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter Bill Number"
+              placeholder="Enter Billing Number"
               required
             />
           </div>
@@ -407,17 +408,46 @@
       </div>
 
       <!-- Transaction List -->
-      <div id="transList" class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg">
+      <div
+        id="transList"
+        class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg"
+      >
         <h3 class="text-xl font-bold mb-4">Transactions</h3>
-        <div class="overflow-x-auto"> <!-- Add horizontal scrolling for mobile devices -->
+        <div class="overflow-x-auto">
+          <!-- Add horizontal scrolling for mobile devices -->
           <table class="min-w-full table-auto border-collapse">
             <thead class="bg-gray-200">
               <tr>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">SL.</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Description</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Account No</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Amount</th>
-                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Balance</th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700"
+                >
+                  SL.
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700"
+                >
+                  Date
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700"
+                >
+                  Description
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700"
+                >
+                  Account No
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700"
+                >
+                  Amount
+                </th>
+                <th
+                  class="px-4 py-2 text-left text-sm font-medium text-gray-700"
+                >
+                  Balance
+                </th>
               </tr>
             </thead>
             <tbody id="trans-container">
@@ -431,7 +461,6 @@
           </table>
         </div>
       </div>
-      
     </div>
     <script src="utilities.js"></script>
     <script src="home.js"></script>
