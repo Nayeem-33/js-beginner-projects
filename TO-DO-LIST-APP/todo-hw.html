@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-stone-300 py-10">
+    <div class="bg-white shadow-2xl rounded-2xl p-5 container w-1/2 mx-auto">
+      <div class="header">
+        <h1 class="text-center mt-5 text-3xl font-bold">TO-DO APP 📝 📜</h1>
+      </div>
+      <div class="main mt-5">
+        <div class="w-[65%] mx-auto flex">
+          <!-- Input box -->
+          <input
+            id="input-value"
+            type="text"
+            placeholder="Type here"
+            class="input input-bordered input-success w-full me-2"
+          />
+
+          <!-- Add Task Btn -->
+          <button id="task-btn" class="btn btn-outline btn-success">
+            Add Task
+          </button>
+        </div>
+
+        <!-- Task Containers-->
+        <div class="overflow-x-auto w-[70%] mx-auto my-4">
+          
+          <!-- Task List Container -->
+          <div class="px-4 border-2 rounded-lg mt-3">
+            <h1 class="text-center mt-10 text-3xl font-bold">
+              Task List 📋 📌
+            </h1>
+            <table class="table mt-5">
+              <thead>
+                <tr>
+                  <th>Number</th>
+                  <th>Description</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="content-container"></tbody>
+            </table>
+          </div>
+
+          <!-- Completed Task Container -->
+          <div class="px-4 border-2 rounded-lg mt-3">
+            <h1 class="text-center mt-10 text-3xl font-bold">
+              Completed Task ✅ 🎯
+            </h1>
+            <table class="table mt-5">
+              <thead>
+                <tr>
+                  <th>Number</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <!-- task container -->
+              <tbody id="content-container-2"></tbody>
+            </table>
+          </div>
+          <!-- Clear Button -->
+          <div class="text-end">
+            <button id="clear-btn" class="btn btn-error btn-xs mt-4">
+              Clear All
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="todo-hw.js"></script>
+  </body>
+</html>

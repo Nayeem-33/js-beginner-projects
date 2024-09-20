@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banking Finance System - Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/12c401b8a1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-blue-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white py-4">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <h1 class="text-2xl font-bold">BankApp</h1>
+        <button
+          id="logoutBtn"
+          class="bg-red-500 px-4 py-2 rounded hover:bg-red-600"
+        >
+          Logout
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+      <!-- Account Balance Section -->
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+        <h2 class="text-2xl font-semibold">Account Balance</h2>
+        <p class="text-4xl font-bold text-green-500 mt-2">
+          $ <span id="balance">10000.00</span>
+        </p>
+      </div>
+
+      <!-- Features Section -->
+      <div class="mt-8 grid grid-cols-3 gap-4">
+        <button
+          id="btn-add"
+          class="text-lg bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700"
+        >
+          <i class="mb-4 text-4xl fa-solid fa-money-bills"></i> <br />
+          Add Money
+        </button>
+        <button
+          id="btn-out"
+          class="text-lg bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700"
+        >
+          <i class="mb-4 text-4xl fa-solid fa-money-bill-1-wave"></i> <br />
+          Cash Out
+        </button>
+        <button
+          id="btn-send"
+          class="text-lg bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700"
+        >
+          <i class="mb-4 text-4xl fa-solid fa-money-bill-transfer"></i> <br />
+          Send Money
+        </button>
+        <button
+          id="btn-recharge"
+          class="text-lg bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700"
+        >
+          <i class="mb-4 text-4xl fa-solid fa-mobile"></i> <br />
+          Mobile Recharge
+        </button>
+        <button
+          id="btn-bill"
+          class="text-lg bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700"
+        >
+          <i class="mb-4 text-4xl fa-solid fa-lightbulb"></i> <br />
+          Pay Bill
+        </button>
+        <button
+          id="btn-trans"
+          class="text-lg bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700"
+        >
+          <i class="mb-4 text-4xl fa-solid fa-rectangle-list"></i> <br />
+          Transactions
+        </button>
+      </div>
+
+      <!-- Add Money Form -->
+      <div id="addForm" class="mt-10 bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4">Add Money to Account</h3>
+        <form action="#" class="space-y-4">
+          <!-- Card Number -->
+          <div>
+            <label for="cardNo" class="block text-sm font-medium text-gray-700"
+              >Card Number</label
+            >
+            <input
+              type="text"
+              id="cardNo"
+              name="cardNo"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Card Number"
+              required
+            />
+          </div>
+          <!-- Amount -->
+          <div>
+            <label
+              for="addAmount"
+              class="block text-sm font-medium text-gray-700"
+              >Amount</label
+            >
+            <input
+              type="number"
+              id="addAmount"
+              name="addAmount"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Amount"
+              required
+            />
+          </div>
+          <!-- PIN Verification -->
+          <div>
+            <label
+              for="addAmountPin"
+              class="block text-sm font-medium text-gray-700"
+              >PIN for Verification</label
+            >
+            <input
+              type="password"
+              id="addAmountPin"
+              name="addAmountPin"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter PIN"
+              required
+            />
+          </div>
+          <!-- Add Money Button -->
+          <div>
+            <button
+              id="addMoney"
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+            >
+              Add Money
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Cash Out Form -->
+      <div id="outForm" class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4">Agent Cash Out</h3>
+        <form action="#" class="space-y-4">
+          <!-- Agent Number -->
+          <div>
+            <label
+              for="agentNumber"
+              class="block text-sm font-medium text-gray-700"
+              >Agent Number</label
+            >
+            <input
+              type="text"
+              id="agentNumber"
+              name="agentNumber"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Agent Number"
+              required
+            />
+          </div>
+          <!-- Amount -->
+          <div>
+            <label
+              for="cashOutAmount"
+              class="block text-sm font-medium text-gray-700"
+              >Amount</label
+            >
+            <input
+              type="number"
+              id="cashOutAmount"
+              name="cashOutAmount"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 
+              
+              focus:ring-blue-500"
+              placeholder="Enter Cash Out Amount"
+              required
+            />
+          </div>
+          <!-- PIN Verification -->
+          <div>
+            <label
+              for="cashOutPin"
+              class="block text-sm font-medium text-gray-700"
+              >PIN for Verification</label
+            >
+            <input
+              type="password"
+              id="cashOutPin"
+              name="cashOutPin"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter PIN"
+              required
+            />
+          </div>
+          <!-- Cash Out Button -->
+          <div>
+            <button
+              id="cashOutButton"
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+            >
+              Cash Out
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Send Money Form -->
+      <div id="sendForm" class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4">Send Money</h3>
+        <form action="#" class="space-y-4">
+          <!-- Recipient Number -->
+          <div>
+            <label
+              for="recipientNumber"
+              class="block text-sm font-medium text-gray-700"
+              >Recipient Number</label
+            >
+            <input
+              type="text"
+              id="recipientNumber"
+              name="recipientNumber"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Agent Number"
+              required
+            />
+          </div>
+          <!-- Amount -->
+          <div>
+            <label
+              for="sendMoneyAmount"
+              class="block text-sm font-medium text-gray-700"
+              >Amount</label
+            >
+            <input
+              type="number"
+              id="sendMoneyAmount"
+              name="sendMoneyAmount"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Cash Out Amount"
+              required
+            />
+          </div>
+          <!-- PIN Verification -->
+          <div>
+            <label
+              for="sendMoneyPin"
+              class="block text-sm font-medium text-gray-700"
+              >PIN for Verification</label
+            >
+            <input
+              type="password"
+              id="sendMoneyPin"
+              name="sendMoneyPin"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter PIN"
+              required
+            />
+          </div>
+          <!-- Cash Out Button -->
+          <div>
+            <button
+              id="sendMoneyButton"
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+            >
+              Send Money
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Mobile Recharge Form -->
+      <div id="rechargeForm" class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4">Mobile Recharge</h3>
+        <form action="#" class="space-y-4">
+          <!-- Recipient Number -->
+          <div>
+            <label
+              for="mobileNumber"
+              class="block text-sm font-medium text-gray-700"
+              >Mobile Number</label
+            >
+            <input
+              type="text"
+              id="mobileNumber"
+              name="mobileNumber"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Agent Number"
+              required
+            />
+          </div>
+          <!-- Amount -->
+          <div>
+            <label
+              for="rechargeAmount"
+              class="block text-sm font-medium text-gray-700"
+              >Recharge Amount</label
+            >
+            <input
+              type="number"
+              id="rechargeAmount"
+              name="rechargeAmount"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Cash Out Amount"
+              required
+            />
+          </div>
+          <!-- PIN Verification -->
+          <div>
+            <label
+              for="mobileRechargePin"
+              class="block text-sm font-medium text-gray-700"
+              >PIN for Verification</label
+            >
+            <input
+              type="password"
+              id="mobileRechargePin"
+              name="mobileRechargePin"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter PIN"
+              required
+            />
+          </div>
+          <!-- Cash Out Button -->
+          <div>
+            <button
+              id="mobileRechargeButton"
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+            >
+              Recharge
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Pay Bill Form -->
+      <div id="billForm" class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4">Pay Bill</h3>
+        <form action="#" class="space-y-4">
+          <!-- Bill No -->
+          <div>
+            <label for="billNo" class="block text-sm font-medium text-gray-700"
+              >Bill Number</label
+            >
+            <input
+              type="text"
+              id="billNo"
+              name="billNo"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Bill Number"
+              required
+            />
+          </div>
+          <!-- Amount -->
+          <div>
+            <label
+              for="billingAmount"
+              class="block text-sm font-medium text-gray-700"
+              >Billing Amount</label
+            >
+            <input
+              type="number"
+              id="billingAmount"
+              name="billingAmount"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter Billing Amount"
+              required
+            />
+          </div>
+          <!-- PIN Verification -->
+          <div>
+            <label
+              for="billingPin"
+              class="block text-sm font-medium text-gray-700"
+              >PIN for Verification</label
+            >
+            <input
+              type="password"
+              id="billingPin"
+              name="billingPin"
+              class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter PIN"
+              required
+            />
+          </div>
+          <!-- Cash Out Button -->
+          <div>
+            <button
+              id="payBillButton"
+              type="submit"
+              class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+            >
+              Pay Bill
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Transaction List -->
+      <div id="transList" class="hidden mt-10 bg-white p-6 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-4">Transactions</h3>
+        <div class="overflow-x-auto"> <!-- Add horizontal scrolling for mobile devices -->
+          <table class="min-w-full table-auto border-collapse">
+            <thead class="bg-gray-200">
+              <tr>
+                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">SL.</th>
+                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Description</th>
+                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Account No</th>
+                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Amount</th>
+                <th class="px-4 py-2 text-left text-sm font-medium text-gray-700">Balance</th>
+              </tr>
+            </thead>
+            <tbody id="trans-container">
+              <!-- <tr class="bg-white border-b">
+                <td class="px-4 py-2 text-sm text-gray-700">1</td>
+                <td class="px-4 py-2 text-sm text-gray-700">Add Money</td>
+                <td class="px-4 py-2 text-sm text-green-500">+500</td>
+                <td class="px-4 py-2 text-sm text-green-500">10000+</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+    <script src="utilities.js"></script>
+    <script src="home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Finance System - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm">
+        <!-- Logo -->
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-blue-600">BankApp</h1>
+        </div>
+        <!-- Login Form -->
+        <form action="#" class="space-y-4">
+            <!-- Account Number -->
+            <div>
+                <label for="accountNo" class="block text-sm font-medium text-gray-700">Account No</label>
+                <input type="text" id="accountNo" name="accountNo" class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Account Number" required>
+            </div>
+            <!-- PIN -->
+            <div>
+                <label for="pin" class="block text-sm font-medium text-gray-700">PIN</label>
+                <input type="password" id="pin" name="pin" class="block w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter PIN" required>
+            </div>
+            <!-- Login Button -->
+            <div>
+                <button type="submit" id="login-btn" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Login</button>
+            </div>
+        </form>
+        <!-- Additional Features -->
+        <div class="mt-6 text-center">
+            <a href="#" class="text-sm text-blue-500 hover:underline">Forgot PIN?</a>
+        </div>
+        <div class="mt-2 text-center">
+            <a href="#" class="text-sm text-blue-500 hover:underline">Create a new account</a>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
