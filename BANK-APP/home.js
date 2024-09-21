@@ -199,24 +199,36 @@ document.getElementById("addMoney").addEventListener("click", function (event) {
 //  Toggle Forms and Trans List
 document.getElementById("btn-add").addEventListener("click", function () {
   formToggle("addForm");
+  toggleFocus("btn-add")
 });
 
 document.getElementById("btn-out").addEventListener("click", function () {
   formToggle("outForm");
+  toggleFocus("btn-out")
 });
 
 document.getElementById("btn-send").addEventListener("click", function () {
   formToggle("sendForm");
+  toggleFocus("btn-send")
 });
 
 document.getElementById("btn-recharge").addEventListener("click", function () {
   formToggle("rechargeForm");
+  toggleFocus("btn-recharge")
 });
 
 document.getElementById("btn-bill").addEventListener("click", function () {
   formToggle("billForm");
+  toggleFocus("btn-bill")
 });
 
 document.getElementById("btn-trans").addEventListener("click", function () {
   formToggle("transList");
+  toggleFocus("btn-trans")
 });
+
+// LOGOUT
+document.getElementById('logoutBtn').addEventListener('click', function (event) {
+  event.preventDefault();
+  window.location.href = 'index.html';
+})
