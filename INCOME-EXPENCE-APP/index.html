@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income & Expense Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Gradient Background for Button */
+    .btn-gradient-focus {
+      background: linear-gradient(150deg, #FF2CDF, #0014FF);
+    }
+    .btn-gradient {
+      background: linear-gradient(150deg, #FF2CDF, #0014FF);
+    }
+  
+    /* Hover Effect with Different Gradient */
+    .btn-gradient:hover {
+      background: linear-gradient(150deg, #FF6BCD, #0033FF);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-300 font-sans">
+  <!-- Container -->
+  <div class="max-w-3xl mx-auto p-4 sm:p-8 bg-slate-700 my-10 rounded-xl">
+    <!-- Action Buttons -->
+<div class="flex gap-5 mb-6">
+    <button id="btn-action" class="btn-gradient-focus  text-white font-bold py-4 px-6 rounded-lg focus:outline-none flex-grow">
+      Action
+    </button>
+    <button id="btn-history" class=" bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg focus:outline-none flex-grow">
+      History
+    </button>
+  </div>
+  
+
+    <!-- Input Section -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+      <h2 class="text-2xl font-bold mb-4 text-gray-100">Income & Expenses</h2>
+
+      <div class="mb-4">
+        <label for="income" class="block text-sm font-medium mb-1 text-gray-200">Income:</label>
+        <input id="income" type="number" class="w-full p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none" placeholder="Enter your income">
+        <span id="invalid-income" class="hidden text-red-500 text-sm">Invalid Income</span>
+      </div>
+
+      <!-- Expenses Section -->
+      <div class="mb-4">
+        <label for="project-cost" class="block text-sm font-medium mb-1 text-gray-200">Project Cost:</label>
+        <input id="project-cost" type="number" class="w-full p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none" placeholder="Enter project cost">
+        <span id="invalid-project-cost" class="hidden text-red-500 text-sm">Invalid Project Cost</span>
+      </div>
+
+      <div class="mb-4">
+        <label for="utility-cost" class="block text-sm font-medium mb-1 text-gray-200">Utility Cost:</label>
+        <input id="utility-cost" type="number" class="w-full p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none" placeholder="Enter utility cost">
+        <span id="invalid-utility-cost" class="hidden text-red-500 text-sm">Invalid Utility Cost</span>
+      </div>
+
+      <div class="mb-4">
+        <label for="misc-cost" class="block text-sm font-medium mb-1 text-gray-200">Miscellaneous Cost:</label>
+        <input id="misc-cost" type="number" class="w-full p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none" placeholder="Enter miscellaneous cost">
+        <span id="invalid-misc-cost" class="hidden text-red-500 text-sm">Invalid Miscellaneous Cost</span>
+      </div>
+
+      <button id="calculate-expenses" class="w-full btn-gradient text-white py-2 px-4 rounded-lg mt-4 focus:outline-none hover:bg-blue-600">
+        Calculate Expenses
+      </button>
+    </div>
+
+    <!-- Savings Section -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+      <h2 class="text-2xl font-bold mb-4 text-gray-100">Savings</h2>
+
+      <div class="mb-4">
+        <label for="savings" class="block text-sm font-medium mb-1 text-gray-200">Savings:</label>
+        <input id="savings" type="number" class="w-full p-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none" placeholder="Enter your savings">
+        <span id="invalid-savings" class="hidden text-red-500 text-sm">Invalid Savings</span>
+      </div>
+
+      <button id="calculate-savings" class="w-full btn-gradient text-white py-2 px-4 rounded-lg mt-4 focus:outline-none hover:bg-gradient-to-r hover:from-pink-500 hover:to-blue-500">
+        Calculate Savings
+      </button>
+    </div>
+
+    <!-- Income Summary Section -->
+<div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+    <h2 class="text-2xl font-bold mb-4 text-gray-100">Income Summary</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <!-- Income Box -->
+      <div class="border-l-4 border-l-blue-700 bg-slate-700 p-4 rounded-lg text-center">
+        <h3 class="font-bold text-white">Income</h3>
+        <p id="summary-income" class="text-lg text-white">$0.00</p>
+      </div>
+      
+      <!-- Expenses Box -->
+      <div class="border-l-4 border-l-red-700 bg-slate-700 p-4 rounded-lg text-center">
+        <h3 class="font-bold text-white">Expenses</h3>
+        <p id="summary-expenses" class="text-lg text-white">$0.00</p>
+      </div>
+      
+      <!-- Balance Box -->
+      <div class="border-l-4 border-l-sky-500 bg-slate-700 p-4 rounded-lg text-center">
+        <h3 class="font-bold text-white">Balance</h3>
+        <p id="summary-balance" class="text-lg text-white">$0.00</p>
+      </div>
+      
+      <!-- Savings Box -->
+      <div class="border-l-4 border-l-yellow-500 bg-slate-700 p-4 rounded-lg text-center">
+        <h3 class="font-bold text-white">Savings</h3>
+        <p id="summary-savings" class="text-lg text-white">$0.00</p>
+      </div>
+      
+      <!-- Usable Balance Box -->
+      <div class="border-l-4 border-l-lime-500 bg-slate-700 p-4 rounded-lg text-center col-span-2">
+        <h3 class="font-bold text-white">Usable Balance</h3>
+        <p id="summary-usable-balance" class="text-lg text-white">$0.00</p>
+      </div>
+    </div>
+  </div>
+  
+
+    <!-- Transactions Table -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-4 text-gray-100">Transactions</h2>
+      <table class="w-full text-left table-fixed">
+        <thead>
+          <tr class="text-gray-300">
+            <th class="px-4 py-2">Date</th>
+            <th class="px-4 py-2">Description</th>
+            <th class="px-4 py-2">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-gray-700">
+            <td class="px-4 py-2">2024-09-21</td>
+            <td class="px-4 py-2">Income Received</td>
+            <td class="px-4 py-2">$3000.00</td>
+          </tr>
+          <tr class="bg-gray-600">
+            <td class="px-4 py-2">2024-09-22</td>
+            <td class="px-4 py-2">Utility Payment</td>
+            <td class="px-4 py-2">$150.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
