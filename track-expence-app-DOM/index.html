@@ -1,98 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Expense Tracker</title>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontawesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/12c401b8a1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-  <!-- Fontawesome CDN -->
-  <script src="https://kit.fontawesome.com/12c401b8a1.js" crossorigin="anonymous"></script>
-</head>
+  <body class="bg-gray-100 text-gray-800">
+    <div class="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded-2xl">
+      <!-- Form to Add Expense -->
+      <div
+        class="grid grid-cols-3 items-center p-4 bg-gray-50 rounded-md shadow-md"
+      >
+        <!-- Left section: Logo and Dashboard Title -->
+        <div class="flex items-center space-x-3">
+          <!-- Logo Image -->
+          <img
+            class="w-10 h-10 rounded-full"
+            src="./assets/logo.png"
+            alt="ExTrack Logo"
+          />
+          <!-- App Name -->
+          <h1 class="text-2xl font-bold text-gray-800">ExTrack</h1>
+        </div>
 
-<body class="bg-gray-100 text-gray-800">
-  <div class="max-w-xl mx-auto mt-10 p-6 bg-white shadow-md rounded-2xl">
-    <!-- Form to Add Expense -->
-    <div class="grid grid-cols-3 items-center p-4 bg-gray-50 rounded-md shadow-md">
-      <!-- Left section: Logo and Dashboard Title -->
-      <div class="flex items-center space-x-3">
-        <!-- Logo Image -->
-        <img class="w-10 h-10 rounded-full" src="./assets/logo.png" alt="ExTrack Logo" />
-        <!-- App Name -->
-        <h1 class="text-2xl font-bold text-gray-800">ExTrack</h1>
+        <!-- Dashboard Title (Centered) -->
+        <h1 class="text-xl text-gray-700 font-bold text-center">Dashboard</h1>
+
+        <!-- Right section: Profile Image -->
+        <div class="flex justify-end">
+          <img
+            class="w-10 h-10 rounded-full border border-gray-300"
+            src="./assets/profile.png"
+            alt="Profile"
+          />
+        </div>
       </div>
 
-      <!-- Dashboard Title (Centered) -->
-      <h1 class="text-xl text-gray-700 font-bold text-center">Dashboard</h1>
+      <!-- total expense -->
+      <div
+        class="bg-black font-bold rounded-3xl py-10 text-5xl text-center mt-10 flex justify-center items-center"
+      >
+        <p class="text-gray-500">
+          BDT <span class="text-white" id="total-amount">0</span>
+        </p>
+        <img
+          id="expense-form-btn"
+          class="mt-1 w-12 ml-3 cursor-pointer hover:bg-white hover:bg-opacity-20 p-1 rounded-lg"
+          title="Click here to add expense"
+          src="./assets/expanseicon.png"
+          alt="Expanse icon"
+        />
+      </div>
+      <!-- input expanse form -->
+      <div
+        id="expense-form"
+        class="hidden space-y-4 mt-10 p-10 rounded-md shadow-md"
+      >
+        <p class="font-bold text-xl">Add Expense</p>
+        <div>
+          <label
+            for="description"
+            class="block text-sm font-medium text-gray-700"
+            >Description</label
+          >
+          <input
+            type="text"
+            id="description"
+            class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
+            required
+          />
+        </div>
+        <div>
+          <label for="amount" class="block text-sm font-medium text-gray-700"
+            >Amount</label
+          >
+          <input
+            type="number"
+            id="amount"
+            class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
+            required
+          />
+        </div>
+        <div>
+          <label for="category" class="block text-sm font-medium text-gray-700"
+            >Category</label
+          >
+          <select
+            id="category"
+            class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
+          >
+            <option value="food">Food</option>
+            <option value="shopping">Shopping</option>
+            <option value="grocery">Grocery</option>
+            <option value="travel">Travel</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="other" selected>Other</option>
+          </select>
+        </div>
+        <button
+          id="submit-expense"
+          type="submit"
+          class="w-full bg-blue-600 text-white py-2 rounded-md"
+        >
+          Add Expense
+        </button>
+      </div>
 
-      <!-- Right section: Profile Image -->
-      <div class="flex justify-end">
-        <img class="w-10 h-10 rounded-full border border-gray-300" src="./assets/profile.png" alt="Profile" />
-      </div>
-    </div>
-
-    <!-- total expense -->
-    <div class="bg-black font-bold rounded-3xl py-10 text-5xl text-center mt-10 flex justify-center items-center">
-      <p class="text-gray-500">
-        BDT <span class="text-white" id="total-amount">0</span>
-      </p>
-      <img class="w-12 ml-4" src="./assets/expanseicon.png" alt="Expanse icon" />
-    </div>
-    <!-- input expanse form -->
-    <div id="expense-form" class="space-y-4 mt-10 p-10 rounded-md shadow-md">
-      <p class="font-bold text-xl">Add Expense</p>
-      <div>
-        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-        <input type="text" id="description" class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
-          required />
-      </div>
-      <div>
-        <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
-        <input type="number" id="amount" class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
-          required />
-      </div>
-      <div>
-        <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
-        <select id="category" class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2">
+      <!-- Filter by Category -->
+      <div class="space-y-4 mt-10 p-10 rounded-md shadow-md">
+        <label
+          for="filter-category"
+          class="block text-sm font-medium text-gray-700"
+          >Filter by Category</label
+        >
+        <select
+          id="filter-category"
+          class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
+        >
+          <option value="all" selected>All</option>
           <option value="food">Food</option>
           <option value="shopping">Shopping</option>
           <option value="grocery">Grocery</option>
           <option value="travel">Travel</option>
           <option value="entertainment">Entertainment</option>
-          <option value="other" selected>Other</option>
+          <option value="other">Other</option>
         </select>
+        <!-- Expense List -->
+        <h3 class="mt-6 font-bold text-xl">Expense List:</h3>
+        <ul id="expense-list" class="mt-4 space-y-2">
+          <!-- Expenses will be injected here -->
+        </ul>
       </div>
-      <button id="submit-expence" type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md">
-        Add Expense
-      </button>
     </div>
 
-    <!-- Filter by Category -->
-    <div class="space-y-4 mt-10 p-10 rounded-md shadow-md">
-      <label for="filter-category" class="block text-sm font-medium text-gray-700">Filter by Category</label>
-      <select id="filter-category" class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2">
-        <option value="all" selected>All</option>
-        <option value="food">Food</option>
-        <option value="shopping">Shopping</option>
-        <option value="grocery">Grocery</option>
-        <option value="travel">Travel</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="other">Other</option>
-      </select>
-      <!-- Expense List -->
-      <h3 class="mt-6 text-lg font-semibold">Expense List:</h3>
-      <ul id="expense-list" class="mt-4 space-y-2">
-        <!-- Expenses will be injected here -->
-      </ul>
-    </div>
-  </div>
-
-  <!-- Linking the JavaScript file -->
-  <!-- <script src="script.js"></script> -->
-  <script src="./js/utilities.js"></script>
-  <script src="./js/index.js"></script>
-</body>
-
+    <!-- Linking the JavaScript file -->
+    <script src="./js/utilities.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
 </html>
