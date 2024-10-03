@@ -114,8 +114,3 @@ document
       calculateExpenses(expenseObjArr);
     }
   });
-
-//  function removeLi(event){
-//     // expenseObjArr[]g
-//     x.remove()
-//   }
