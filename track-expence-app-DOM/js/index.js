@@ -4,6 +4,43 @@ let expenseObjArr = [];
 
 let filteredArray;
 
+function removeLi(id) {
+  expenseObjArr = expenseObjArr.filter((user) => user.id !== id);
+  filteredArray = filteredArray.filter((user) => user.id !== id);
+
+  let filterValue = idValue("filter-category");
+
+  if (filterValue === "food") {
+    filteredArray = filterArray(expenseObjArr, "food");
+    fetchList(filteredArray);
+    calculateExpenses(filteredArray);
+  } else if (filterValue === "shopping") {
+    filteredArray = filterArray(expenseObjArr, "shopping");
+    fetchList(filteredArray);
+    calculateExpenses(filteredArray);
+  } else if (filterValue === "grocery") {
+    filteredArray = filterArray(expenseObjArr, "grocery");
+    fetchList(filteredArray);
+    calculateExpenses(filteredArray);
+  } else if (filterValue === "travel") {
+    filteredArray = filterArray(expenseObjArr, "travel");
+    fetchList(filteredArray);
+    calculateExpenses(filteredArray);
+  } else if (filterValue === "entertainment") {
+    filteredArray = filterArray(expenseObjArr, "entertainment");
+    fetchList(filteredArray);
+    calculateExpenses(filteredArray);
+  } else if (filterValue === "other") {
+    filteredArray = filterArray(expenseObjArr, "other");
+    fetchList(filteredArray);
+    calculateExpenses(filteredArray);
+  } else {
+    fetchList(expenseObjArr);
+    calculateExpenses(expenseObjArr);
+  }
+}
+
+// Hide and show expense Form
 document
   .getElementById("expense-form-btn")
   .addEventListener("click", function () {
@@ -47,34 +84,38 @@ document
   .addEventListener("change", function (event) {
     event.preventDefault();
     let filterValue = idValue("filter-category");
-    // sss
-    console.log(filterValue);
 
     if (filterValue === "food") {
       filteredArray = filterArray(expenseObjArr, "food");
       fetchList(filteredArray);
+      calculateExpenses(filteredArray);
     } else if (filterValue === "shopping") {
       filteredArray = filterArray(expenseObjArr, "shopping");
       fetchList(filteredArray);
+      calculateExpenses(filteredArray);
     } else if (filterValue === "grocery") {
       filteredArray = filterArray(expenseObjArr, "grocery");
       fetchList(filteredArray);
+      calculateExpenses(filteredArray);
     } else if (filterValue === "travel") {
       filteredArray = filterArray(expenseObjArr, "travel");
       fetchList(filteredArray);
+      calculateExpenses(filteredArray);
     } else if (filterValue === "entertainment") {
       filteredArray = filterArray(expenseObjArr, "entertainment");
       fetchList(filteredArray);
+      calculateExpenses(filteredArray);
     } else if (filterValue === "other") {
       filteredArray = filterArray(expenseObjArr, "other");
       fetchList(filteredArray);
+      calculateExpenses(filteredArray);
     } else {
       fetchList(expenseObjArr);
+      calculateExpenses(expenseObjArr);
     }
   });
 
-
- function removeLi(event){
-    // expenseObjArr[]g
-    x.remove()
-  }
+//  function removeLi(event){
+//     // expenseObjArr[]g
+//     x.remove()
+//   }

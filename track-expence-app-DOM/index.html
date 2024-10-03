@@ -50,7 +50,7 @@
         class="bg-black font-bold rounded-3xl py-10 text-5xl text-center mt-10 flex justify-center items-center"
       >
         <p class="text-gray-500">
-          BDT <span class="text-white" id="total-amount">0</span>
+          BDT <span class="text-white" id="total-amount">0.00</span>
         </p>
         <img
           id="expense-form-btn"
@@ -115,27 +115,34 @@
         </button>
       </div>
 
-      <!-- Filter by Category -->
       <div class="space-y-4 mt-10 p-10 rounded-md shadow-md">
-        <label
-          for="filter-category"
-          class="block text-sm font-medium text-gray-700"
-          >Filter by Category</label
-        >
-        <select
-          id="filter-category"
-          class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
-        >
-          <option value="all" selected>All</option>
-          <option value="food">Food</option>
-          <option value="shopping">Shopping</option>
-          <option value="grocery">Grocery</option>
-          <option value="travel">Travel</option>
-          <option value="entertainment">Entertainment</option>
-          <option value="other">Other</option>
-        </select>
-        <!-- Expense List -->
-        <h3 class="mt-6 font-bold text-xl">Expense List:</h3>
+        <div class="flex w-full justify-between items-center">
+          <!-- Expense List -->
+          <div>
+            <h3 class="font-bold text-xl">Expense List:</h3>
+          </div>
+          <!-- Filter by Category -->
+          <div>
+            <label
+              for="filter-category"
+              class="block text-sm font-medium text-gray-700"
+              >Filter by Category</label
+            >
+            <select
+              id="filter-category"
+              class="mt-1 block w-full border-2 border-gray-200 rounded-md shadow-sm p-2"
+            >
+              <option value="all" selected>All</option>
+              <option value="food">Food</option>
+              <option value="shopping">Shopping</option>
+              <option value="grocery">Grocery</option>
+              <option value="travel">Travel</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        
         <ul id="expense-list" class="mt-4 space-y-2">
           <!-- Expenses will be injected here -->
         </ul>

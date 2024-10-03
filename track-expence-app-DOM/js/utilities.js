@@ -49,7 +49,7 @@ function fetchList(array) {
             <p><span class="font-semibold">Date:</span> ${new Date().toLocaleDateString()}</p>
         </div>
         <div>
-        <button id="delete-${element.id}" onclick="removeLi(delete-${element.id})" class="text-red-500 border border-red-500 px-2 py-1 rounded-md"><i class="fa-regular fa-trash-can"></i></button>
+        <button onclick="removeLi(${element.id})" class="text-red-500 border border-red-500 px-2 py-1 rounded-md"><i class="fa-regular fa-trash-can"></i></button>
         </div>
         </div>
         `
